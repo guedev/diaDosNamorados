@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Dia dos Namorados ❤️</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: #fff0f5;
+        color: #5a2a2a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.3em;
+      }
+
+      #contador {
+        font-size: 1.8em;
+        margin-bottom: 1em;
+      }
+
+      p {
+        font-size: 1.2em;
+        max-width: 600px;
+        margin: 0 20px;
+      }
+
+      .audio-controls {
+        margin-top: 1.5em;
+      }
+
+      .audio-controls button {
+        background-color: #d63384;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .audio-controls button:hover {
+        background-color: #a61e59;
+      }
+
+      .hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .heart {
+        position: absolute;
+        color: rgba(255, 0, 102, 0.5);
+        animation: float 10s linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) scale(0.5);
+        }
+        100% {
+          transform: translateY(-10vh) scale(1.5);
+        }
+      }
+
+      /* Carrossel */
+      .carousel {
+        position: relative;
+        width: 90%;
+        max-width: 600px;
+        margin: 40px auto;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+      }
+
+      .carousel-inner img {
+        width: 100%;
+        flex-shrink: 0;
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .timeline {
+        list-style: none;
+        padding: 0;
+        margin: 30px auto;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .timeline li {
+        background: rgba(255, 255, 255, 0.8);
+        margin-bottom: 15px;
+        padding: 15px 20px;
+        border-left: 5px solid #d63384;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline li strong {
+        color: #a61e59;
+      }
+
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.7);
+        border: none;
+        font-size: 2em;
+        padding: 0 15px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 5px;
+      }
+
+      .prev {
+        left: 10px;
+      }
+      .next {
+        right: 10px;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Feliz Dia dos Namorados ❤️</h1>
+
+    <div id="contador"></div>
+
+    <p>
+      Desde o dia em que nossos caminhos se cruzaram, o tempo tem sido mais
+      doce.<br />
+      Que cada novo dia continue sendo uma nova chance de te amar. 💖
+    </p>
+
+    <div class="audio-controls">
+      <button onclick="toggleAudio()">Tocar / Pausar música</button>
+    </div>
+
+    <audio id="musica" autoplay loop>
+      <source src="musica.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio.
+    </audio>
+
+    <h2 style="margin-top: 3em">Alguns de Nossos Marcos 📖</h2>
+    <ul class="timeline">
+      <li><strong>28/10/2010</strong> – Nosso primeiro beijo 💋</li>
+      <li>
+        <strong>15/09/2017</strong> – Nossa primeira viajem de avião juntos ✈️
+      </li>
+      <li><strong>23/09/2017</strong> – Nossa primeiro RIR juntos 🎸</li>
+      <li><strong>04/11/2022</strong> – Pedido de Noivado 💍</li>
+      <li><strong>13/09/2024</strong> – Dia da União Estável ❤️</li>
+      <li><strong>CARREGANDO ...</strong></li>
+    </ul>
+
+    <h2 style="margin-top: 2em">Alguns "Cliques" Nossos 📸</h2>
+
+    <div class="carousel">
+      <button class="prev" onclick="mudarSlide(-1)">❮</button>
+      <div class="carousel-inner" id="carousel">
+        <img src="fotos/1.jpg" alt="Foto 1" />
+        <img src="fotos/2.jpg" alt="Foto 2" />
+        <img src="fotos/4.JPG" alt="Foto 3" />
+        <img src="fotos/5.jpg" alt="Foto 4" />
+        <img src="fotos/3.jpeg" alt="Foto 5" />
+        <img src="fotos/6.jpg" alt="Foto 6" />
+        <img src="fotos/7.jpg" alt="Foto 7" />
+        <!-- adicione mais fotos aqui -->
+      </div>
+      <button class="next" onclick="mudarSlide(1)">❯</button>
+    </div>
+
+    <div class="hearts" id="hearts"></div>
+
+    <script>
+      // Contador de dias
+      const inicio = new Date("2010-10-28T21:00:00");
+      const contador = document.getElementById("contador");
+
+      function atualizarContador() {
+        const agora = new Date();
+        let diff = Math.floor((agora - inicio) / 1000);
+
+        const dias = Math.floor(diff / (3600 * 24));
+        diff %= 3600 * 24;
+        const horas = Math.floor(diff / 3600);
+        diff %= 3600;
+        const minutos = Math.floor(diff / 60);
+        const segundos = diff % 60;
+
+        const format = (num) => String(num).padStart(2, "0");
+
+        contador.textContent =
+          `Estamos juntos há ${dias} dias, ` +
+          `${format(horas)} horas, ${format(minutos)} minutos e ${format(
+            segundos
+          )} segundos!`;
+      }
+
+      setInterval(atualizarContador, 1000);
+      atualizarContador();
+
+      // Música
+      const musica = document.getElementById("musica");
+      function toggleAudio() {
+        if (musica.paused) musica.play();
+        else musica.pause();
+      }
+
+      // Corações flutuantes
+      function criarCoração() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+        document.getElementById("hearts").appendChild(heart);
+        setTimeout(() => heart.remove(), 10000);
+      }
+
+      setInterval(criarCoração, 300);
+
+      // Carrossel
+      let slideIndex = 0;
+      const carousel = document.getElementById("carousel");
+      const totalSlides = carousel.children.length;
+
+      function mudarSlide(direcao) {
+        slideIndex = (slideIndex + direcao + totalSlides) % totalSlides;
+        carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+      }
+
+      // Troca automática a cada 7 segundos
+      setInterval(() => mudarSlide(1), 7000);
+
+      // Mensagem de boas-vindas
+      window.addEventListener("load", () => {
+        alert(
+          "A vida seria muito sem graça sem ter você ao meu lado. Esse site é uma simples celebração do nosso amor ❤️"
+        );
+      });
+    </script>
+  </body>
+</html>
